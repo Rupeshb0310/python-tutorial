@@ -10,6 +10,8 @@ pipeline {
             steps {
                 
                 withSonarQubeEnv('Sonarqube-9.5') {
+                    sh "pwd"
+                    sh "ls"
                     sh """
                
                     /opt/Sonarqube-9.5/bin/sonar-scanner
