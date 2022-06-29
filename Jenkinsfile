@@ -13,7 +13,7 @@ pipeline {
                 docker run --rm --net=host -v ${PWD}:/sq sonarsource/sonar-scanner-cli sonar-scanner -D sonar.projectBaseDir=/sq
                 '''
                    
-                }
+                
             }
         }
        
