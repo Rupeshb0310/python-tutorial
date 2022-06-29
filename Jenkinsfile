@@ -8,7 +8,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('Sonarqube 9.5') {
+                withSonarQubeEnv('Sonarqube-9.5') {
                     sh """
                     sonar.projectKey=sq
                     sonar.projectName=sq
