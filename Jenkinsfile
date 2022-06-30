@@ -7,15 +7,16 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            steps {
-                sh '''
-                #!/bin/bash
-                docker run --rm --net=host -v ${PWD}:/sq sonarsource/sonar-scanner-cli sonar-scanner -D sonar.projectBaseDir=/sq
-                '''
-                   
-                
-            }
-        }
+            def scannerHome = tool 'sonarqube';
+            withSonarQubeEnv('sonarqube') {
+              sh "${scannerHome}/bin/sonar-scanner \
+              -D sonar.login=admin \
+              -D sonar.password=0000 \
+              -D sonar.projectKey=ssq \
+              
+              -D sonar.host.url=http://localhost:9000/"
+    }
+  }
        
     }
 }
