@@ -7,7 +7,7 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            def scannerHome = tool 'sonarqube';
+            def scannerHome = tool 'Sonarqube-9.5';
             withSonarQubeEnv('Sonarqube-9.5') {
               sh "${scannerHome}/bin/sonar-scanner \
               -D sonar.login=admin \
