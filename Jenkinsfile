@@ -13,8 +13,6 @@ pipeline {
 
                     withSonarQubeEnv('Sonarqube-9.5') {
                       sh "${scannerHome}/bin/sonar-scanner \
-                      -D sonar.login=admin \
-                      -D sonar.password=0000 \
                       -D sonar.projectKey=sq \
                       -D sonar.host.url=http://localhost:9000/"
                   }
