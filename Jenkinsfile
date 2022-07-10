@@ -6,6 +6,12 @@ pipeline {
                 git url: 'https://github.com/Rupeshb0310/python-tutorial.git'
             }
         }
+        stage('DEmo') {
+            steps {
+                sh "pip install coverage"
+                sh "pip3 install coverage"
+            }
+        }
         stage('SonarQube analysis') {
             steps {
                 script{
@@ -13,7 +19,7 @@ pipeline {
 
                     withSonarQubeEnv('Sonarqube-9.5') {
                       sh "${scannerHome}/bin/sonar-scanner \
-                      -D sonar.projectKey=demo \
+                      -D sonar.projectKey=coverage \
                       -D sonar.host.url=http://localhost:9000/"
                   }
                 }
